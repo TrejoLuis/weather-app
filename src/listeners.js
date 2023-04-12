@@ -12,7 +12,7 @@ function listenersInit(){
   const currentRegion = document.querySelector('#currentRegion')
 
   //condition ICON
-
+  const currentConditionIcon = document.querySelector('#currentConditionIcon')
   const currentCondition = document.querySelector('#currentCondition')
 
   const currentTemp = document.querySelector('#currentTemperature')
@@ -42,6 +42,7 @@ function listenersInit(){
     //MainCard
     currentCity.textContent = weatherData.location.name
     currentRegion.textContent = weatherData.location.region
+    currentConditionIcon.src = weatherData.current.condition.icon
     currentCondition.textContent = weatherData.current.condition.text
     currentTemp.textContent = weatherData.current.temp_c
     //MiscCards
@@ -55,6 +56,8 @@ function listenersInit(){
     for (let i=0; i<3; i++){
       forecastCards[i].childNodes[0].textContent = 
         weekdays[new Date(weatherData.forecast.forecastday[i].date).getUTCDay()] 
+      forecastCards[i].childNodes[1].src = 
+        weatherData.forecast.forecastday[i].day.condition.icon
       forecastCards[i].childNodes[2].children[0].textContent = 
         weatherData.forecast.forecastday[i].day.mintemp_c
       forecastCards[i].childNodes[2].children[1].textContent = 

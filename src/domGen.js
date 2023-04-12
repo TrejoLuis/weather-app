@@ -1,3 +1,8 @@
+import humidityIcon from './icons/humidity.png'
+import airIcon from './icons/air.png'
+import sunnyIcon from './icons/sunny.png'
+import thermoIcon from './icons/thermometer.png'
+
 function init(){
   const content = document.createElement('div')
   content.id = 'content'
@@ -50,8 +55,8 @@ function currentWeather(){
   const cityDiv = document.createElement('div')
   cityDiv.innerHTML = `<span id="currentCity"></span>, <span id="currentRegion"></span>`
 
-  const icon = document.createElement('div')
-  icon.textContent = 'ICON'
+  const icon = document.createElement('img')
+  icon.id = 'currentConditionIcon'
 
   const condition = document.createElement('p')
   condition.id = 'currentCondition'
@@ -67,7 +72,7 @@ function currentWeather(){
   feelsLikeCard.innerHTML = `
   <p>Feels like</p>
   <div>
-    <img src="#">
+    <img src=${thermoIcon}>
     <span id='currentFeelsLike'></span>
   </div>
   `
@@ -76,7 +81,7 @@ function currentWeather(){
   windCard.innerHTML = `
   <p>Wind</p>
   <div>
-    <img src="#">
+    <img src=${airIcon}>
     <span id='currentWind'></span> | <span id='currentWindDir'></span>
   </div>
   `
@@ -86,7 +91,7 @@ function currentWeather(){
   humidityCard.innerHTML = `
   <p>Humidity</p>
   <div>
-    <img src="#">
+    <img src=${humidityIcon}>
     <span id='currentHumidity'></span>
   </div>
   `
@@ -95,7 +100,7 @@ function currentWeather(){
   uvCard.innerHTML = `
   <p>UV index</p>
   <div>
-    <img src="#">
+    <img src=${sunnyIcon}>
     <span id='currentUv'></span>
   </div>
   `
