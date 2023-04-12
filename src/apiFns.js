@@ -6,7 +6,7 @@ const FORECAST_API = `${BASE_URL}forecast.json?key=${API_KEY}&days=3&q=`
 
 async function weatherFetch(location){
   try {
-    if(!location) return
+    if(!location) throw new Error ('No location given')
     const response = await fetch(FORECAST_API+location)
     if(response.status == 200) {
       return await response.json()
