@@ -61,6 +61,9 @@ function currentWeather(){
   const condition = document.createElement('p')
   condition.id = 'currentCondition'
 
+  const date = document.createElement('p')
+  date.id = 'currentDate'
+
   const temperature = document.createElement('p')
   temperature.id = 'currentTemperature'
 
@@ -106,7 +109,7 @@ function currentWeather(){
   `
   miscDataContainer.append(feelsLikeCard, windCard, humidityCard, uvCard)
 
-  currentCard.append(cityDiv, icon, condition, temperature, miscDataContainer)
+  currentCard.append(cityDiv, icon, condition, date, temperature, miscDataContainer)
 
   return currentCard
 }

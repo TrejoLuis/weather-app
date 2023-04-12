@@ -1,4 +1,5 @@
 import {weatherFetch} from './apiFns.js'
+import  {getDay, getFormatedDate} from './utils.js'
 
 function listenersInit(){
 
@@ -14,6 +15,8 @@ function listenersInit(){
   //condition ICON
   const currentConditionIcon = document.querySelector('#currentConditionIcon')
   const currentCondition = document.querySelector('#currentCondition')
+
+  const currentDate = document.querySelector('#currentDate')
 
   const currentTemp = document.querySelector('#currentTemperature')
   //MISC CARDS
@@ -44,6 +47,7 @@ function listenersInit(){
     currentRegion.textContent = weatherData.location.region
     currentConditionIcon.src = weatherData.current.condition.icon
     currentCondition.textContent = weatherData.current.condition.text
+    currentDate.textContent = getFormatedDate(weatherData.location.localtime)
     currentTemp.textContent = weatherData.current.temp_c
     //MiscCards
     currentFeelsLike.textContent = weatherData.current.feelslike_c
@@ -52,10 +56,11 @@ function listenersInit(){
     currentHumidity.textContent = weatherData.current.humidity
     currentUv.textContent = weatherData.current.uv
 
-    const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    // const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
     for (let i=0; i<3; i++){
       forecastCards[i].childNodes[0].textContent = 
-        weekdays[new Date(weatherData.forecast.forecastday[i].date).getUTCDay()] 
+        getDay(weatherData.forecast.forecastday[i].date)
+        // weekdays[new Date(weatherData.forecast.forecastday[i].date).getUTCDay()] 
       forecastCards[i].childNodes[1].src = 
         weatherData.forecast.forecastday[i].day.condition.icon
       forecastCards[i].childNodes[2].children[0].textContent = 
