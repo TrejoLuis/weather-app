@@ -29,18 +29,62 @@ function listenersInit(){
   //FORECAST CARDS
   const forecastCards = document.querySelectorAll('.forecast-card')
 
-  //Caching feching data
   let weatherData = null 
-  // let weatherDataOld = null
+  let isMetric = true
 
   console.log(citySearchTxt)
   console.log(forecastCards)
-  citySearchBtn.addEventListener('click', fillWeatherData)
 
-  async function fillWeatherData(){
-    weatherData = await weatherFetch(citySearchTxt.value)
-    if(!weatherData) return
-    console.log(weatherData)
+  //LISTENERS
+  window.addEventListener('load', firstLoad)
+  citySearchBtn.addEventListener('click', getWeatherData)
+  toggleDegreesBtn.addEventListener('click', toggleMetricSys)
+
+  async function firstLoad(){
+    weatherData = await weatherFetch('Cancun')
+
+    fillWeatherData()
+  }
+  function toggleMetricSys(){
+    if(isMetric){
+      currentTemp.textContent = weatherData.current.temp_f
+      currentFeelsLike.textContent = weatherData.current.feelslike_f
+      currentWind.textContent = weatherData.current.wind_mph
+
+      for (let i=0; i<3; i++){
+        forecastCards[i].childNodes[2].children[0].textContent = 
+          weatherData.forecast.forecastday[i].day.mintemp_f
+        forecastCards[i].childNodes[2].children[1].textContent = 
+          weatherData.forecast.forecastday[i].day.maxtemp_f
+      }
+      isMetric = false
+    } else {
+      currentTemp.textContent = weatherData.current.temp_c
+      currentFeelsLike.textContent = weatherData.current.feelslike_c
+      currentWind.textContent = weatherData.current.wind_kph
+
+      for (let i=0; i<3; i++){
+        forecastCards[i].childNodes[2].children[0].textContent = 
+          weatherData.forecast.forecastday[i].day.mintemp_c
+        forecastCards[i].childNodes[2].children[1].textContent = 
+          weatherData.forecast.forecastday[i].day.maxtemp_c
+      }
+      isMetric = true 
+    }
+  }
+  async function getWeatherData(){
+    try{
+      console.log(weatherData)
+      let tempWeather = await weatherFetch(citySearchTxt.value)
+      //Caching data
+      if(tempWeather) weatherData = tempWeather
+      if(weatherData) fillWeatherData()
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  function fillWeatherData(){
     
     //MainCard
     currentCity.textContent = weatherData.location.name
@@ -56,11 +100,10 @@ function listenersInit(){
     currentHumidity.textContent = weatherData.current.humidity
     currentUv.textContent = weatherData.current.uv
 
-    // const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    //Forecast
     for (let i=0; i<3; i++){
       forecastCards[i].childNodes[0].textContent = 
         getDay(weatherData.forecast.forecastday[i].date)
-        // weekdays[new Date(weatherData.forecast.forecastday[i].date).getUTCDay()] 
       forecastCards[i].childNodes[1].src = 
         weatherData.forecast.forecastday[i].day.condition.icon
       forecastCards[i].childNodes[2].children[0].textContent = 
