@@ -29,6 +29,10 @@ function header(){
  function main(){
   const main = document.createElement('main')
 
+  const mainContent = document.createElement('div')
+  mainContent.id = 'mainContent'
+  currentWeather().forEach(div => mainContent.appendChild(div))
+
   const forecastHeader = document.createElement('h3')
   forecastHeader.textContent = '3 Day Forecast'
 
@@ -40,12 +44,15 @@ function header(){
     forecastContainer.appendChild(cards[i])
   }
 
-  main.append(currentWeather(), forecastHeader, forecastContainer)
+  main.append(mainContent, forecastHeader, forecastContainer)
   
   return main
 }
 
 function currentWeather(){
+  const hourlyCointainer = document.createElement('div') 
+  hourlyCointainer.classList.add('hourly-container', 'hidden')
+
   const currentCard = document.createElement('div')
   currentCard.classList.add('current-card')
 
@@ -112,7 +119,7 @@ function currentWeather(){
 
   currentCard.append(cityDiv, icon, condition, date, temperature, miscDataContainer)
 
-  return currentCard
+  return [currentCard, hourlyCointainer]
 }
 
 function forecastCards(){
