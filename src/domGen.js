@@ -16,11 +16,11 @@ function header(){
   const header = document.createElement('header')
   header.innerHTML = `
   <div class="logo">LOGO</div>
-  <button id="toggleDegreeBtn">°C / °F</button>
   <div class="search-div">
     <input type="text" id="searchCity">
     <button class="search-button">ICON</button>
   </div>
+  <button id="toggleDegreeBtn">°C / °F</button>
   `
 
   return header
@@ -36,7 +36,6 @@ function header(){
   forecastHeader.textContent = '3 Day Forecast'
 
   const forecastContainer = document.createElement('div')
-  forecastContainer.textContent = 'FORECAST CONTAINER'
   forecastContainer.id = 'forecastContainer'
 
   let cards = forecastCards()
@@ -51,20 +50,25 @@ function header(){
 
 function currentWeather(){
   const currentCard = document.createElement('div')
+  currentCard.classList.add('current-card')
 
-  const cityDiv = document.createElement('div')
+  const cityDiv = document.createElement('p')
+  cityDiv.classList.add('text-normal')
   cityDiv.innerHTML = `<span id="currentCity"></span>, <span id="currentRegion"></span>`
 
   const icon = document.createElement('img')
   icon.id = 'currentConditionIcon'
 
   const condition = document.createElement('p')
+  condition.classList.add('text-normal')
   condition.id = 'currentCondition'
 
   const date = document.createElement('p')
+  date.classList.add('text-small')
   date.id = 'currentDate'
 
   const temperature = document.createElement('p')
+  temperature.classList.add('text-big', 'temperature', 'metric-system')
   temperature.id = 'currentTemperature'
 
   const miscDataContainer = document.createElement('div')
@@ -76,7 +80,7 @@ function currentWeather(){
   <p>Feels like</p>
   <div>
     <img src=${thermoIcon}>
-    <span id='currentFeelsLike'></span>
+    <span id='currentFeelsLike' class='temperature metric-system'></span>
   </div>
   `
   const windCard = document.createElement('div')
@@ -85,7 +89,7 @@ function currentWeather(){
   <p>Wind</p>
   <div>
     <img src=${airIcon}>
-    <span id='currentWind'></span> | <span id='currentWindDir'></span>
+    <span id='currentWind' class='velocity metric-system'></span> | <span id='currentWindDir'></span>
   </div>
   `
 
@@ -122,16 +126,16 @@ function forecastCards(){
     card.classList.add('forecast-card')
 
     const day = document.createElement('p')
-    day.classList.add('forecast-day')
+    day.classList.add('text-normal')
 
     const icon = document.createElement('img')
     icon.src = "#"
 
     const minMaxTemp = document.createElement('p')
+    minMaxTemp.classList.add('text-small')
     minMaxTemp.innerHTML = `
-    <span class='forecast-min'></span> min | <span class='forecast-max'></span> max
+    <span class='forecast-min temperature metric-system'></span> | <span class='forecast-max temperature metric-system'></span>
     `
-
     card.append(day, icon, minMaxTemp)
 
     cards.push(card)

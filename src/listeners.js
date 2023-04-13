@@ -28,6 +28,7 @@ function listenersInit(){
 
   //FORECAST CARDS
   const forecastCards = document.querySelectorAll('.forecast-card')
+  const forecastTemps = document.querySelectorAll('.forecast-min, .forecast-max')
 
   let weatherData = null 
   let isMetric = true
@@ -71,6 +72,10 @@ function listenersInit(){
       }
       isMetric = true 
     }
+    currentTemp.classList.toggle('metric-system')
+    currentFeelsLike.classList.toggle('metric-system')
+    currentWind.classList.toggle('metric-system')
+    forecastTemps.forEach(spn => spn.classList.toggle('metric-system'))
   }
   async function getWeatherData(){
     try{

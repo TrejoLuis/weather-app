@@ -21,6 +21,20 @@ body{
   
 }
 
+.temperature.metric-system::after{
+  content: ' °C' 
+}
+.temperature::after{
+  content: ' °F'
+}
+.velocity.metric-system::after{
+  content: ' km/h'
+}
+
+.velocity::after{
+  content: ' mph'
+}
+
 .text-big{
   font-size: 1.4em;
 }
