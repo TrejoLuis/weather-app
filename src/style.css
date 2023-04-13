@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*::after,
+*::before,
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-size: 1.8rem;
+  font-style: 'Roboto', sans-serif;
+  background-color: moccasin;
+}
+
+#content{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 2rem;
+  
+}
+
+.text-big{
+  font-size: 1.4em;
+}
+.text-small{
+  font-size: 0.7em;
+}
+
