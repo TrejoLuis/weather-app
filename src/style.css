@@ -9,9 +9,9 @@
 }
 
 body{
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-style: 'Roboto', sans-serif;
-  background-color: moccasin;
+  background-color: beige;
 }
 
 #content{
@@ -20,6 +20,60 @@ body{
   gap: 2rem;
   
 }
+
+header{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  background-color: moccasin;
+
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid green;
+  width: clamp(380px, 75%, 700px);
+  margin: 0 auto;
+}
+
+.current-card{
+  text-align: center;
+}
+
+.miscData-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.miscData-card{
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+.miscData-card img{
+  width: 36px;
+}
+.miscData-card div{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#forecastContainer{
+  display: flex;
+}
+.forecast-card{
+  background-color: lightblue;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+.forecast-card:nth-child(1),
+.forecast-card:nth-child(2){
+  border-right: 1px solid black;
+}
+
 
 .temperature.metric-system::after{
   content: ' °C' 
