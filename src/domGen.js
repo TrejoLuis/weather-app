@@ -29,9 +29,6 @@ function header(){
  function main(){
   const main = document.createElement('main')
 
-  const currentContainer = document.createElement('div')
-  currentContainer.appendChild(currentWeather())
-
   const forecastHeader = document.createElement('h3')
   forecastHeader.textContent = '3 Day Forecast'
 
@@ -43,7 +40,7 @@ function header(){
     forecastContainer.appendChild(cards[i])
   }
 
-  main.append(currentContainer, forecastHeader, forecastContainer)
+  main.append(currentWeather(), forecastHeader, forecastContainer)
   
   return main
 }
