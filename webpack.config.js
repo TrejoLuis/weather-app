@@ -25,7 +25,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Todo-List App'
+      title: 'Weather App'
     })
   ],
   devtool: 'source-map',
