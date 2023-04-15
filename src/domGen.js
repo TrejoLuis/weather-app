@@ -52,10 +52,15 @@ function header(){
 function currentWeather(){
   const hourlyCointainer = document.createElement('div') 
   hourlyCointainer.classList.add('hourly-container', 'hidden')
+
+  const hourlyContainerTop = document.createElement('div')
+  hourlyContainerTop.id = 'hourlyContainerTop'
+  const hourlyDay = document.createElement('p')
   const exitHourlyData = document.createElement('span')
   exitHourlyData.classList.add('close-pane')
   exitHourlyData.textContent = 'X'
-  const hourlyDay = document.createElement('p')
+  hourlyContainerTop.append(hourlyDay, exitHourlyData)
+  
   const hourlyUl = document.createElement('ul')
   for(let i=0; i<24; i++){
     const li = document.createElement('li')
@@ -63,7 +68,7 @@ function currentWeather(){
     li.appendChild(hourlyElement(i))
     hourlyUl.appendChild(li)
   }
-  hourlyCointainer.append(hourlyDay, hourlyUl, exitHourlyData)
+  hourlyCointainer.append(hourlyContainerTop, hourlyUl)
 
   const currentCard = document.createElement('div')
   currentCard.classList.add('current-card')
