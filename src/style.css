@@ -49,20 +49,26 @@ main{
 
 .hourly-container{
   text-align:center;
-  padding: 1rem 1.5rem;
+  padding: 0 1.5rem;
   position: relative;
   height: 50dvh;
   overflow: scroll;
 }
+#hourlyContainerTop{
+  position: sticky;
+  top: 0;
+  background-color: beige;
+  padding: 0.5rem 1rem;
+}
 .close-pane{
   position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+  top: 0.5rem;
+  right: 1rem;
   cursor: pointer;
 }
 .hourly-container ul{
   list-style: none;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 }
 .hourly-container li{
   margin-bottom: 0.5rem;
