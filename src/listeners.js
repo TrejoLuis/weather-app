@@ -32,7 +32,6 @@ function listenersInit(){
 
   //FORECAST CARDS
   const forecastCards = document.querySelectorAll('.forecast-card')
-  const forecastTemps = document.querySelectorAll('.forecast-min, .forecast-max')
 
   //SYSTEM DEPENDANT VALUES
   const systemDependantValues = document.querySelectorAll('.temperature, .velocity')
@@ -62,12 +61,12 @@ function listenersInit(){
     hourlyContainer.classList.remove('hidden')
 
     //Clicked the same day
-    if(hourlyContainer.children[0].textContent == e.currentTarget.firstChild.textContent)
+    if(hourlyContainer.firstChild.firstChild.textContent == e.currentTarget.firstChild.textContent)
       return
     let id = e.currentTarget.attributes[0].value
     let hoursData = weatherData.forecast.forecastday[id].hour
-    hourlyContainer.firstChild.attributes[0].value = id
-    hourlyContainer.children[0].textContent = forecastCards[id].firstChild.textContent
+    hourlyContainer.attributes['card-id'].value = id
+    hourlyContainer.firstChild.firstChild.textContent = forecastCards[id].firstChild.textContent
     console.log(id)
     //Fill ul
     let ul = hourlyContainer.children[1]
@@ -87,8 +86,8 @@ function listenersInit(){
     fillWeatherData()
     //first hourly data - current day
     let hoursData = weatherData.forecast.forecastday[0].hour
-    hourlyContainer.children[0].setAttribute('card-id', 0)
-    hourlyContainer.children[0].textContent = forecastCards[0].firstChild.textContent
+    hourlyContainer.setAttribute('card-id', 0)
+    hourlyContainer.firstChild.firstChild.textContent = forecastCards[0].firstChild.textContent
     //Fill ul
     let ul = hourlyContainer.children[1]
     for(let i=0; i<24; i++){
@@ -113,7 +112,7 @@ function listenersInit(){
           weatherData.forecast.forecastday[i].day.maxtemp_f
       }
       //Toggle hourlyData
-      let id = hourlyContainer.firstChild.attributes[0].value
+      let id = hourlyContainer.attributes['card-id'].value
       let ul = hourlyContainer.children[1]
       let hoursData = weatherData.forecast.forecastday[id].hour
       for(let i=0; i<24; i++){
@@ -133,7 +132,7 @@ function listenersInit(){
           weatherData.forecast.forecastday[i].day.maxtemp_c
       }
       //Toggle hourlyData
-      let id = hourlyContainer.firstChild.attributes[0].value
+      let id = hourlyContainer.attributes['card-id'].value
       let ul = hourlyContainer.children[1]
       let hoursData = weatherData.forecast.forecastday[id].hour
       for(let i=0; i<24; i++){
@@ -142,10 +141,6 @@ function listenersInit(){
       }
       isMetric = true 
     }
-    // currentTemp.classList.toggle('metric-system')
-    // currentFeelsLike.classList.toggle('metric-system')
-    // currentWind.classList.toggle('metric-system')
-    // forecastTemps.forEach(spn => spn.classList.toggle('metric-system'))
     systemDependantValues.forEach(ele => ele.classList.toggle('metric-system'))
   }
   async function getWeatherData(){
