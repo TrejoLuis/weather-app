@@ -59,6 +59,7 @@ function listenersInit(){
     //Hidding current card, show hourly data
     currentCard.classList.add('hidden')
     hourlyContainer.classList.remove('hidden')
+    hourlyContainer.scrollTop = 0
 
     //Clicked the same day
     if(hourlyContainer.firstChild.firstChild.textContent == e.currentTarget.firstChild.textContent)
