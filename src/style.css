@@ -47,6 +47,37 @@ main{
   display: none;
 }
 
+.hourly-container{
+  text-align:center;
+  padding: 1rem 1.5rem;
+  position: relative;
+  height: 50dvh;
+  overflow: scroll;
+}
+.close-pane{
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+.hourly-container ul{
+  list-style: none;
+  margin-top: 1rem;
+}
+.hourly-container li{
+  margin-bottom: 0.5rem;
+}
+.hourly-element{
+  background-color: moccasin;
+  padding: 0.5rem 1rem;
+}
+.hourly-element>div{
+  display: flex;
+}
+.hourly-container img{
+  width: 32px;
+}
+
 .miscData-container{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -57,7 +88,7 @@ main{
   text-align: left;
 }
 .miscData-card img{
-  width: 36px;
+  width: 32px;
 }
 .miscData-card div{
   display: flex;
