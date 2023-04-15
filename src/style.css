@@ -43,6 +43,10 @@ main{
   text-align: center;
 }
 
+.hidden{
+  display: none;
+}
+
 .miscData-container{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -84,7 +88,6 @@ main{
 .velocity.metric-system::after{
   content: ' km/h'
 }
-
 .velocity::after{
   content: ' mph'
 }
