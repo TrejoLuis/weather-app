@@ -1,5 +1,5 @@
 import {weatherFetch} from './apiFns.js'
-import  {getDay, getFormatedDate} from './utils.js'
+import {getDay, getFormatedDate} from './utils.js'
 
 function listenersInit(){
 
@@ -11,6 +11,10 @@ function listenersInit(){
   //MAIN CARD
   const currentCity = document.querySelector('#currentCity')
   const currentRegion = document.querySelector('#currentRegion')
+  const currentCard = document.querySelector('.current-card')
+  //HOURLY CONTAINER
+  const hourlyContainer = document.querySelector('.hourly-container')
+  const closeHourlyData = document.querySelector('.close-pane')
 
   //condition ICON
   const currentConditionIcon = document.querySelector('#currentConditionIcon')
@@ -30,6 +34,9 @@ function listenersInit(){
   const forecastCards = document.querySelectorAll('.forecast-card')
   const forecastTemps = document.querySelectorAll('.forecast-min, .forecast-max')
 
+  //SYSTEM DEPENDANT VALUES
+  const systemDependantValues = document.querySelectorAll('.temperature, .velocity')
+
   let weatherData = null 
   let isMetric = true
 
@@ -40,11 +47,58 @@ function listenersInit(){
   window.addEventListener('load', firstLoad)
   citySearchBtn.addEventListener('click', getWeatherData)
   toggleDegreesBtn.addEventListener('click', toggleMetricSys)
+  forecastCards.forEach(card => card.addEventListener('click', toggleHourly))
+  closeHourlyData.addEventListener('click', closePanel)
+
+  function closePanel(){
+    hourlyContainer.classList.add('hidden')
+    currentCard.classList.remove('hidden')
+  }
+
+  function toggleHourly(e){
+    console.log(e.currentTarget)
+    //Hidding current card, show hourly data
+    currentCard.classList.add('hidden')
+    hourlyContainer.classList.remove('hidden')
+
+    //Clicked the same day
+    if(hourlyContainer.children[0].textContent == e.currentTarget.firstChild.textContent)
+      return
+    let id = e.currentTarget.attributes[0].value
+    let hoursData = weatherData.forecast.forecastday[id].hour
+    hourlyContainer.firstChild.attributes[0].value = id
+    hourlyContainer.children[0].textContent = forecastCards[id].firstChild.textContent
+    console.log(id)
+    //Fill ul
+    let ul = hourlyContainer.children[1]
+    for(let i=0; i<24; i++){
+      //Hourly element Temp
+      ul.children[i].firstChild.firstChild.firstChild.children[0].textContent = 
+        isMetric ? hoursData[i].temp_c : hoursData[i].temp_f
+      //Hourly element Icon 
+      ul.children[i].firstChild.firstChild.lastChild.src = 
+        hoursData[i].condition.icon
+    }
+  }
 
   async function firstLoad(){
     weatherData = await weatherFetch('Cancun')
 
     fillWeatherData()
+    //first hourly data - current day
+    let hoursData = weatherData.forecast.forecastday[0].hour
+    hourlyContainer.children[0].setAttribute('card-id', 0)
+    hourlyContainer.children[0].textContent = forecastCards[0].firstChild.textContent
+    //Fill ul
+    let ul = hourlyContainer.children[1]
+    for(let i=0; i<24; i++){
+      //Hourly element Temp
+      ul.children[i].firstChild.firstChild.firstChild.children[0].textContent = 
+        isMetric ? hoursData[i].temp_c : hoursData[i].temp_f
+      //Hourly element Icon 
+      ul.children[i].firstChild.firstChild.lastChild.src = 
+        hoursData[i].condition.icon
+    }
   }
   function toggleMetricSys(){
     if(isMetric){
@@ -58,6 +112,14 @@ function listenersInit(){
         forecastCards[i].childNodes[2].children[1].textContent = 
           weatherData.forecast.forecastday[i].day.maxtemp_f
       }
+      //Toggle hourlyData
+      let id = hourlyContainer.firstChild.attributes[0].value
+      let ul = hourlyContainer.children[1]
+      let hoursData = weatherData.forecast.forecastday[id].hour
+      for(let i=0; i<24; i++){
+        ul.children[i].firstChild.firstChild.firstChild.children[0].textContent = 
+          hoursData[i].temp_f
+      }
       isMetric = false
     } else {
       currentTemp.textContent = weatherData.current.temp_c
@@ -70,12 +132,21 @@ function listenersInit(){
         forecastCards[i].childNodes[2].children[1].textContent = 
           weatherData.forecast.forecastday[i].day.maxtemp_c
       }
+      //Toggle hourlyData
+      let id = hourlyContainer.firstChild.attributes[0].value
+      let ul = hourlyContainer.children[1]
+      let hoursData = weatherData.forecast.forecastday[id].hour
+      for(let i=0; i<24; i++){
+        ul.children[i].firstChild.firstChild.firstChild.children[0].textContent = 
+          hoursData[i].temp_c
+      }
       isMetric = true 
     }
-    currentTemp.classList.toggle('metric-system')
-    currentFeelsLike.classList.toggle('metric-system')
-    currentWind.classList.toggle('metric-system')
-    forecastTemps.forEach(spn => spn.classList.toggle('metric-system'))
+    // currentTemp.classList.toggle('metric-system')
+    // currentFeelsLike.classList.toggle('metric-system')
+    // currentWind.classList.toggle('metric-system')
+    // forecastTemps.forEach(spn => spn.classList.toggle('metric-system'))
+    systemDependantValues.forEach(ele => ele.classList.toggle('metric-system'))
   }
   async function getWeatherData(){
     try{
@@ -84,6 +155,8 @@ function listenersInit(){
       //Caching data
       if(tempWeather) weatherData = tempWeather
       if(weatherData) fillWeatherData()
+      currentCard.classList.remove('hidden')
+      hourlyContainer.classList.add('hidden')
     } catch (err) {
       console.error(err)
     }
@@ -97,10 +170,10 @@ function listenersInit(){
     currentConditionIcon.src = weatherData.current.condition.icon
     currentCondition.textContent = weatherData.current.condition.text
     currentDate.textContent = getFormatedDate(weatherData.location.localtime)
-    currentTemp.textContent = weatherData.current.temp_c
+    currentTemp.textContent = isMetric ? weatherData.current.temp_c : weatherData.current.temp_f
     //MiscCards
-    currentFeelsLike.textContent = weatherData.current.feelslike_c
-    currentWind.textContent = weatherData.current.wind_kph
+    currentFeelsLike.textContent = isMetric ? weatherData.current.feelslike_c : weatherData.current.feelslike_f
+    currentWind.textContent = isMetric ? weatherData.current.wind_kph : weatherData.current.wind_mph
     currentWindDir.textContent = weatherData.current.wind_dir
     currentHumidity.textContent = weatherData.current.humidity
     currentUv.textContent = weatherData.current.uv
@@ -111,10 +184,12 @@ function listenersInit(){
         getDay(weatherData.forecast.forecastday[i].date)
       forecastCards[i].childNodes[1].src = 
         weatherData.forecast.forecastday[i].day.condition.icon
-      forecastCards[i].childNodes[2].children[0].textContent = 
-        weatherData.forecast.forecastday[i].day.mintemp_c
-      forecastCards[i].childNodes[2].children[1].textContent = 
-        weatherData.forecast.forecastday[i].day.maxtemp_c
+      forecastCards[i].childNodes[2].children[0].textContent = isMetric 
+        ? weatherData.forecast.forecastday[i].day.mintemp_c
+        : weatherData.forecast.forecastday[i].day.mintemp_f
+      forecastCards[i].childNodes[2].children[1].textContent = isMetric
+        ? weatherData.forecast.forecastday[i].day.maxtemp_c
+        : weatherData.forecast.forecastday[i].day.maxtemp_f
     }
   }
 }

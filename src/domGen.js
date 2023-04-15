@@ -52,6 +52,18 @@ function header(){
 function currentWeather(){
   const hourlyCointainer = document.createElement('div') 
   hourlyCointainer.classList.add('hourly-container', 'hidden')
+  const exitHourlyData = document.createElement('span')
+  exitHourlyData.classList.add('close-pane')
+  exitHourlyData.textContent = 'X'
+  const hourlyDay = document.createElement('p')
+  const hourlyUl = document.createElement('ul')
+  for(let i=0; i<24; i++){
+    const li = document.createElement('li')
+    li.setAttribute('hour',i)
+    li.appendChild(hourlyElement(i))
+    hourlyUl.appendChild(li)
+  }
+  hourlyCointainer.append(hourlyDay, hourlyUl, exitHourlyData)
 
   const currentCard = document.createElement('div')
   currentCard.classList.add('current-card')
@@ -127,6 +139,7 @@ function forecastCards(){
 
   for(let i=0; i<3; i++){
     const card = document.createElement('div')
+    card.setAttribute('card-id', i)
     card.classList.add('forecast-card')
 
     const day = document.createElement('p')
@@ -148,6 +161,20 @@ function forecastCards(){
   return cards
 }
 
+function hourlyElement(i){
+  const hourlyDiv = document.createElement('div')
+  hourlyDiv.classList.add('hourly-element')
+  const hourlyPreview = document.createElement('div')
+  const p = document.createElement('p')
+  p.innerHTML = `${i < 10 ? '0'.concat(i) : i} Hrs | Temperature: 
+    <span class="temperature metric-system"></span> | `
+  const img = document.createElement('img')
+  hourlyPreview.append(p, img)
+  hourlyDiv.appendChild(hourlyPreview)
+
+  return hourlyDiv
+}
+  
 export {
   init
 }
