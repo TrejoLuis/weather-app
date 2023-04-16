@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+:root{
+  /* ORIGINAL */
+  --lt-sh-clr: 255, 252, 197;
+  --lt-acc-clr: 115, 178, 153; 
+  --main-clr: 218, 156, 113;
+  --dk-acc-clr: 135, 109, 85;
+  --dk-sh-clr: 44, 44, 41;
+}
+
 *::after,
 *::before,
 *{
@@ -9,9 +18,10 @@
 }
 
 body{
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 3.5vw,1.5rem);
   font-style: 'Roboto', sans-serif;
-  background-color: beige;
+  color: rgb(var(--dk-sh-clr));
+  background-color: rgb(var(--lt-sh-clr))
 }
 
 #content{
@@ -25,13 +35,15 @@ header{
   display: flex;
   justify-content: space-evenly;
   padding: 1rem;
-  background-color: moccasin;
+  background-color: rgb(var(--lt-acc-clr));
   align-items: center;
 }
 .search-div{
   position: relative;
 }
 .search-div>input{
+  background-color: rgba(var(--lt-sh-clr), 0.3);
+  font-size: inherit;
   padding: 0.5rem;
   border: none;
   outline: none;
@@ -43,8 +55,17 @@ header{
   bottom: 0;
 }
 button{
+  background-color: rgb(var(--main-clr));
+  font-size: inherit;
   padding: 0.5rem;
   border: none;
+  cursor: pointer;
+}
+button:hover{
+  box-shadow: 2px 2px 5px black;
+}
+button:active{
+  box-shadow: none;
 }
 
 footer{
@@ -58,7 +79,7 @@ main{
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: clamp(380px, 75%, 700px);
   margin: 0 auto;
 }
@@ -66,48 +87,6 @@ main{
 .current-card{
   text-align: center;
 }
-
-.hidden{
-  display: none;
-}
-
-.hourly-container{
-  text-align:center;
-  padding: 0 1.5rem;
-  position: relative;
-  height: 50dvh;
-  overflow: scroll;
-}
-#hourlyContainerTop{
-  position: sticky;
-  top: 0;
-  background-color: beige;
-  padding: 0.5rem 1rem;
-}
-.close-pane{
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  cursor: pointer;
-}
-.hourly-container ul{
-  list-style: none;
-  /* margin-top: 1rem; */
-}
-.hourly-container li{
-  margin-bottom: 0.5rem;
-}
-.hourly-element{
-  background-color: moccasin;
-  padding: 0.5rem 1rem;
-}
-.hourly-element>div{
-  display: flex;
-}
-.hourly-container img{
-  width: 32px;
-}
-
 .miscData-container{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -126,13 +105,56 @@ main{
   gap: 0.5rem;
 }
 
+.hidden{
+  display: none;
+}
+
+.hourly-container{
+  text-align:center;
+  padding: 0 1.5rem;
+  position: relative;
+  height: 50dvh;
+  overflow: scroll;
+}
+#hourlyContainerTop{
+  position: sticky;
+  top: 0;
+  background-color: rgb(var(--lt-sh-clr));
+  padding: 0.5rem 1rem;
+}
+.close-pane{
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  cursor: pointer;
+}
+.hourly-container ul{
+  list-style: none;
+  /* margin-top: 1rem; */
+}
+.hourly-container li{
+  margin-bottom: 0.5rem;
+}
+.hourly-element{
+  background-color: rgba(var(--dk-acc-clr), 0.8);
+  padding: 0.5rem 1rem;
+}
+.hourly-element>div{
+  display: flex;
+}
+.hourly-container img{
+  width: 32px;
+}
+
+
 #forecastContainer{
   display: flex;
 }
 .forecast-card{
-  background-color: lightblue;
+  background-color: rgba(var(--main-clr), 0.5);
   padding: 0.5rem 1rem;
   text-align: center;
+  cursor: pointer;
 }
 .forecast-card:nth-child(1),
 .forecast-card:nth-child(2){
