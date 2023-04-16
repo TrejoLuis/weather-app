@@ -18,7 +18,7 @@ body{
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 2rem;
-  
+  height: 100dvh;  
 }
 
 header{
@@ -29,10 +29,16 @@ header{
 
 }
 
+footer{
+  padding: 1rem;
+  text-align: center;
+}
+
 main{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 1rem;
   align-items: center;
   border: 1px solid green;
   width: clamp(380px, 75%, 700px);
