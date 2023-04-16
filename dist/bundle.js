@@ -20,8 +20,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*::after,\n*::before,\n*{\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\n\n#container {\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  gap: 2rem;\n}\n\nheader {\n  display: flex;\n  justify-content: space-between;\n\n  padding: 0.5rem 1rem;\n}\n\nmain {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;;;EAGE,UAAU;EACV,SAAS;EACT,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,iCAAiC;EACjC,SAAS;AACX;;AAEA;EACE,aAAa;EACb,8BAA8B;;EAE9B,oBAAoB;AACtB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB","sourcesContent":["*::after,\n*::before,\n*{\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\n\n#container {\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  gap: 2rem;\n}\n\nheader {\n  display: flex;\n  justify-content: space-between;\n\n  padding: 0.5rem 1rem;\n}\n\nmain {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root{\n  /* ORIGINAL */\n  --lt-sh-clr: 255, 252, 197;\n  --lt-acc-clr: 115, 178, 153; \n  --main-clr: 218, 156, 113;\n  --dk-acc-clr: 135, 109, 85;\n  --dk-sh-clr: 44, 44, 41;\n}\n\n*::after,\n*::before,\n*{\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody{\n  font-size: clamp(1rem, 3.5vw,1.5rem);\n  font-style: 'Roboto', sans-serif;\n  color: rgb(var(--dk-sh-clr));\n  background-color: rgb(var(--lt-sh-clr))\n}\n\n#content{\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  gap: 2rem;\n  height: 100dvh;  \n}\n\nheader{\n  display: flex;\n  justify-content: space-evenly;\n  padding: 1rem;\n  background-color: rgb(var(--lt-acc-clr));\n  align-items: center;\n}\n.search-div{\n  position: relative;\n}\n.search-div>input{\n  background-color: rgba(var(--lt-sh-clr), 0.3);\n  font-size: inherit;\n  padding: 0.5rem;\n  border: none;\n  outline: none;\n}\n.search-div>button{\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n}\nbutton{\n  background-color: rgb(var(--main-clr));\n  font-size: inherit;\n  padding: 0.5rem;\n  border: none;\n  cursor: pointer;\n}\nbutton:hover{\n  box-shadow: 2px 2px 5px black;\n}\nbutton:active{\n  box-shadow: none;\n}\n\nfooter{\n  padding: 1rem;\n  text-align: center;\n}\n\nmain{\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  gap: 1rem;\n  align-items: center;\n  /* border: 1px solid green; */\n  width: clamp(380px, 75%, 700px);\n  margin: 0 auto;\n}\n\n.current-card{\n  text-align: center;\n}\n.miscData-container{\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 1rem;\n}\n.miscData-card{\n  padding: 0.5rem 1rem;\n  text-align: left;\n}\n.miscData-card img{\n  width: 32px;\n}\n.miscData-card div{\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n\n.hidden{\n  display: none;\n}\n\n.hourly-container{\n  text-align:center;\n  padding: 0 1.5rem;\n  position: relative;\n  height: 50dvh;\n  overflow: scroll;\n}\n#hourlyContainerTop{\n  position: sticky;\n  top: 0;\n  background-color: rgb(var(--lt-sh-clr));\n  padding: 0.5rem 1rem;\n}\n.close-pane{\n  position: absolute;\n  top: 0.5rem;\n  right: 1rem;\n  cursor: pointer;\n}\n.hourly-container ul{\n  list-style: none;\n  /* margin-top: 1rem; */\n}\n.hourly-container li{\n  margin-bottom: 0.5rem;\n}\n.hourly-element{\n  background-color: rgba(var(--dk-acc-clr), 0.8);\n  padding: 0.5rem 1rem;\n}\n.hourly-element>div{\n  display: flex;\n}\n.hourly-container img{\n  width: 32px;\n}\n\n\n#forecastContainer{\n  display: flex;\n}\n.forecast-card{\n  background-color: rgba(var(--main-clr), 0.5);\n  padding: 0.5rem 1rem;\n  text-align: center;\n  cursor: pointer;\n}\n.forecast-card:nth-child(1),\n.forecast-card:nth-child(2){\n  border-right: 1px solid black;\n}\n\n\n.temperature.metric-system::after{\n  content: ' °C' \n}\n.temperature::after{\n  content: ' °F'\n}\n.velocity.metric-system::after{\n  content: ' km/h'\n}\n.velocity::after{\n  content: ' mph'\n}\n\n.text-big{\n  font-size: 1.4em;\n}\n.text-small{\n  font-size: 0.7em;\n}\n\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;EACE,aAAa;EACb,0BAA0B;EAC1B,2BAA2B;EAC3B,yBAAyB;EACzB,0BAA0B;EAC1B,uBAAuB;AACzB;;AAEA;;;EAGE,UAAU;EACV,SAAS;EACT,sBAAsB;AACxB;;AAEA;EACE,oCAAoC;EACpC,gCAAgC;EAChC,4BAA4B;EAC5B;AACF;;AAEA;EACE,aAAa;EACb,iCAAiC;EACjC,SAAS;EACT,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,aAAa;EACb,wCAAwC;EACxC,mBAAmB;AACrB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,6CAA6C;EAC7C,kBAAkB;EAClB,eAAe;EACf,YAAY;EACZ,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,MAAM;EACN,QAAQ;EACR,SAAS;AACX;AACA;EACE,sCAAsC;EACtC,kBAAkB;EAClB,eAAe;EACf,YAAY;EACZ,eAAe;AACjB;AACA;EACE,6BAA6B;AAC/B;AACA;EACE,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,uBAAuB;EACvB,SAAS;EACT,mBAAmB;EACnB,6BAA6B;EAC7B,+BAA+B;EAC/B,cAAc;AAChB;;AAEA;EACE,kBAAkB;AACpB;AACA;EACE,aAAa;EACb,8BAA8B;EAC9B,SAAS;AACX;AACA;EACE,oBAAoB;EACpB,gBAAgB;AAClB;AACA;EACE,WAAW;AACb;AACA;EACE,aAAa;EACb,mBAAmB;EACnB,WAAW;AACb;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,iBAAiB;EACjB,iBAAiB;EACjB,kBAAkB;EAClB,aAAa;EACb,gBAAgB;AAClB;AACA;EACE,gBAAgB;EAChB,MAAM;EACN,uCAAuC;EACvC,oBAAoB;AACtB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,WAAW;EACX,eAAe;AACjB;AACA;EACE,gBAAgB;EAChB,sBAAsB;AACxB;AACA;EACE,qBAAqB;AACvB;AACA;EACE,8CAA8C;EAC9C,oBAAoB;AACtB;AACA;EACE,aAAa;AACf;AACA;EACE,WAAW;AACb;;;AAGA;EACE,aAAa;AACf;AACA;EACE,4CAA4C;EAC5C,oBAAoB;EACpB,kBAAkB;EAClB,eAAe;AACjB;AACA;;EAEE,6BAA6B;AAC/B;;;AAGA;EACE;AACF;AACA;EACE;AACF;AACA;EACE;AACF;AACA;EACE;AACF;;AAEA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');\n\n:root{\n  /* ORIGINAL */\n  --lt-sh-clr: 255, 252, 197;\n  --lt-acc-clr: 115, 178, 153; \n  --main-clr: 218, 156, 113;\n  --dk-acc-clr: 135, 109, 85;\n  --dk-sh-clr: 44, 44, 41;\n}\n\n*::after,\n*::before,\n*{\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody{\n  font-size: clamp(1rem, 3.5vw,1.5rem);\n  font-style: 'Roboto', sans-serif;\n  color: rgb(var(--dk-sh-clr));\n  background-color: rgb(var(--lt-sh-clr))\n}\n\n#content{\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  gap: 2rem;\n  height: 100dvh;  \n}\n\nheader{\n  display: flex;\n  justify-content: space-evenly;\n  padding: 1rem;\n  background-color: rgb(var(--lt-acc-clr));\n  align-items: center;\n}\n.search-div{\n  position: relative;\n}\n.search-div>input{\n  background-color: rgba(var(--lt-sh-clr), 0.3);\n  font-size: inherit;\n  padding: 0.5rem;\n  border: none;\n  outline: none;\n}\n.search-div>button{\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n}\nbutton{\n  background-color: rgb(var(--main-clr));\n  font-size: inherit;\n  padding: 0.5rem;\n  border: none;\n  cursor: pointer;\n}\nbutton:hover{\n  box-shadow: 2px 2px 5px black;\n}\nbutton:active{\n  box-shadow: none;\n}\n\nfooter{\n  padding: 1rem;\n  text-align: center;\n}\n\nmain{\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  gap: 1rem;\n  align-items: center;\n  /* border: 1px solid green; */\n  width: clamp(380px, 75%, 700px);\n  margin: 0 auto;\n}\n\n.current-card{\n  text-align: center;\n}\n.miscData-container{\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 1rem;\n}\n.miscData-card{\n  padding: 0.5rem 1rem;\n  text-align: left;\n}\n.miscData-card img{\n  width: 32px;\n}\n.miscData-card div{\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n\n.hidden{\n  display: none;\n}\n\n.hourly-container{\n  text-align:center;\n  padding: 0 1.5rem;\n  position: relative;\n  height: 50dvh;\n  overflow: scroll;\n}\n#hourlyContainerTop{\n  position: sticky;\n  top: 0;\n  background-color: rgb(var(--lt-sh-clr));\n  padding: 0.5rem 1rem;\n}\n.close-pane{\n  position: absolute;\n  top: 0.5rem;\n  right: 1rem;\n  cursor: pointer;\n}\n.hourly-container ul{\n  list-style: none;\n  /* margin-top: 1rem; */\n}\n.hourly-container li{\n  margin-bottom: 0.5rem;\n}\n.hourly-element{\n  background-color: rgba(var(--dk-acc-clr), 0.8);\n  padding: 0.5rem 1rem;\n}\n.hourly-element>div{\n  display: flex;\n}\n.hourly-container img{\n  width: 32px;\n}\n\n\n#forecastContainer{\n  display: flex;\n}\n.forecast-card{\n  background-color: rgba(var(--main-clr), 0.5);\n  padding: 0.5rem 1rem;\n  text-align: center;\n  cursor: pointer;\n}\n.forecast-card:nth-child(1),\n.forecast-card:nth-child(2){\n  border-right: 1px solid black;\n}\n\n\n.temperature.metric-system::after{\n  content: ' °C' \n}\n.temperature::after{\n  content: ' °F'\n}\n.velocity.metric-system::after{\n  content: ' km/h'\n}\n.velocity::after{\n  content: ' mph'\n}\n\n.text-big{\n  font-size: 1.4em;\n}\n.text-small{\n  font-size: 0.7em;\n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -486,7 +487,7 @@ const FORECAST_API = `${BASE_URL}forecast.json?key=${API_KEY}&days=3&q=`
 
 async function weatherFetch(location){
   try {
-    if(!location) return
+    if(!location) throw new Error ('No location given')
     const response = await fetch(FORECAST_API+location)
     if(response.status == 200) {
       return await response.json()
@@ -526,20 +527,29 @@ function init(){
   const content = document.createElement('div')
   content.id = 'content'
 
-  content.append(header(),main())
+  content.append(header(),main(),footer())
 
   document.body.appendChild(content)
+}
+
+function footer(){
+  const foot = document.createElement('footer')
+  const div = document.createElement('div')
+  div.textContent = '©2023 Luis Trejo'
+  foot.appendChild(div)
+
+  return foot
 }
 
 function header(){
   const header = document.createElement('header')
   header.innerHTML = `
   <div class="logo">LOGO</div>
-  <button id="toggleDegreeBtn">°C / °F</button>
   <div class="search-div">
     <input type="text" id="searchCity">
-    <button class="search-button">ICON</button>
+    <button class="search-button">Search</button>
   </div>
+  <button id="toggleDegreeBtn">°C / °F</button>
   `
 
   return header
@@ -548,14 +558,14 @@ function header(){
  function main(){
   const main = document.createElement('main')
 
-  const currentContainer = document.createElement('div')
-  currentContainer.appendChild(currentWeather())
+  const mainContent = document.createElement('div')
+  mainContent.id = 'mainContent'
+  currentWeather().forEach(div => mainContent.appendChild(div))
 
   const forecastHeader = document.createElement('h3')
   forecastHeader.textContent = '3 Day Forecast'
 
   const forecastContainer = document.createElement('div')
-  forecastContainer.textContent = 'FORECAST CONTAINER'
   forecastContainer.id = 'forecastContainer'
 
   let cards = forecastCards()
@@ -563,24 +573,52 @@ function header(){
     forecastContainer.appendChild(cards[i])
   }
 
-  main.append(currentContainer, forecastHeader, forecastContainer)
+  main.append(mainContent, forecastHeader, forecastContainer)
   
   return main
 }
 
 function currentWeather(){
-  const currentCard = document.createElement('div')
+  const hourlyCointainer = document.createElement('div') 
+  hourlyCointainer.classList.add('hourly-container', 'hidden')
 
-  const cityDiv = document.createElement('div')
+  const hourlyContainerTop = document.createElement('div')
+  hourlyContainerTop.id = 'hourlyContainerTop'
+  const hourlyDay = document.createElement('p')
+  const exitHourlyData = document.createElement('span')
+  exitHourlyData.classList.add('close-pane')
+  exitHourlyData.textContent = 'X'
+  hourlyContainerTop.append(hourlyDay, exitHourlyData)
+  
+  const hourlyUl = document.createElement('ul')
+  for(let i=0; i<24; i++){
+    const li = document.createElement('li')
+    li.setAttribute('hour',i)
+    li.appendChild(hourlyElement(i))
+    hourlyUl.appendChild(li)
+  }
+  hourlyCointainer.append(hourlyContainerTop, hourlyUl)
+
+  const currentCard = document.createElement('div')
+  currentCard.classList.add('current-card')
+
+  const cityDiv = document.createElement('p')
+  cityDiv.classList.add('text-normal')
   cityDiv.innerHTML = `<span id="currentCity"></span>, <span id="currentRegion"></span>`
 
   const icon = document.createElement('img')
   icon.id = 'currentConditionIcon'
 
   const condition = document.createElement('p')
+  condition.classList.add('text-normal')
   condition.id = 'currentCondition'
 
+  const date = document.createElement('p')
+  date.classList.add('text-small')
+  date.id = 'currentDate'
+
   const temperature = document.createElement('p')
+  temperature.classList.add('text-big', 'temperature', 'metric-system')
   temperature.id = 'currentTemperature'
 
   const miscDataContainer = document.createElement('div')
@@ -592,7 +630,7 @@ function currentWeather(){
   <p>Feels like</p>
   <div>
     <img src=${_icons_thermometer_png__WEBPACK_IMPORTED_MODULE_3__}>
-    <span id='currentFeelsLike'></span>
+    <span id='currentFeelsLike' class='temperature metric-system'></span>
   </div>
   `
   const windCard = document.createElement('div')
@@ -601,7 +639,7 @@ function currentWeather(){
   <p>Wind</p>
   <div>
     <img src=${_icons_air_png__WEBPACK_IMPORTED_MODULE_1__}>
-    <span id='currentWind'></span> | <span id='currentWindDir'></span>
+    <span id='currentWind' class='velocity metric-system'></span> | <span id='currentWindDir'></span>
   </div>
   `
 
@@ -625,9 +663,9 @@ function currentWeather(){
   `
   miscDataContainer.append(feelsLikeCard, windCard, humidityCard, uvCard)
 
-  currentCard.append(cityDiv, icon, condition, temperature, miscDataContainer)
+  currentCard.append(cityDiv, icon, condition, date, temperature, miscDataContainer)
 
-  return currentCard
+  return [currentCard, hourlyCointainer]
 }
 
 function forecastCards(){
@@ -635,19 +673,20 @@ function forecastCards(){
 
   for(let i=0; i<3; i++){
     const card = document.createElement('div')
+    card.setAttribute('card-id', i)
     card.classList.add('forecast-card')
 
     const day = document.createElement('p')
-    day.classList.add('forecast-day')
+    day.classList.add('text-normal')
 
     const icon = document.createElement('img')
     icon.src = "#"
 
     const minMaxTemp = document.createElement('p')
+    minMaxTemp.classList.add('text-small')
     minMaxTemp.innerHTML = `
-    <span class='forecast-min'></span> min | <span class='forecast-max'></span> max
+    <span class='forecast-min temperature metric-system'></span> | <span class='forecast-max temperature metric-system'></span>
     `
-
     card.append(day, icon, minMaxTemp)
 
     cards.push(card)
@@ -656,6 +695,20 @@ function forecastCards(){
   return cards
 }
 
+function hourlyElement(i){
+  const hourlyDiv = document.createElement('div')
+  hourlyDiv.classList.add('hourly-element')
+  const hourlyPreview = document.createElement('div')
+  const p = document.createElement('p')
+  p.innerHTML = `${i < 10 ? '0'.concat(i) : i} Hrs | Temperature: 
+    <span class="temperature metric-system"></span> | `
+  const img = document.createElement('img')
+  hourlyPreview.append(p, img)
+  hourlyDiv.appendChild(hourlyPreview)
+
+  return hourlyDiv
+}
+  
 
 
 
@@ -673,6 +726,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "listenersInit": () => (/* binding */ listenersInit)
 /* harmony export */ });
 /* harmony import */ var _apiFns_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiFns.js */ "./src/apiFns.js");
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils.js */ "./src/utils.js");
+
 
 
 function listenersInit(){
@@ -685,10 +740,16 @@ function listenersInit(){
   //MAIN CARD
   const currentCity = document.querySelector('#currentCity')
   const currentRegion = document.querySelector('#currentRegion')
+  const currentCard = document.querySelector('.current-card')
+  //HOURLY CONTAINER
+  const hourlyContainer = document.querySelector('.hourly-container')
+  const closeHourlyData = document.querySelector('.close-pane')
 
   //condition ICON
   const currentConditionIcon = document.querySelector('#currentConditionIcon')
   const currentCondition = document.querySelector('#currentCondition')
+
+  const currentDate = document.querySelector('#currentDate')
 
   const currentTemp = document.querySelector('#currentTemperature')
   //MISC CARDS
@@ -701,46 +762,191 @@ function listenersInit(){
   //FORECAST CARDS
   const forecastCards = document.querySelectorAll('.forecast-card')
 
-  //Caching feching data
+  //SYSTEM DEPENDANT VALUES
+  const systemDependantValues = document.querySelectorAll('.temperature, .velocity')
+
   let weatherData = null 
-  // let weatherDataOld = null
+  let isMetric = true
 
   console.log(citySearchTxt)
   console.log(forecastCards)
-  citySearchBtn.addEventListener('click', fillWeatherData)
 
-  async function fillWeatherData(){
-    weatherData = await (0,_apiFns_js__WEBPACK_IMPORTED_MODULE_0__.weatherFetch)(citySearchTxt.value)
-    if(!weatherData) return
-    console.log(weatherData)
+  //LISTENERS
+  window.addEventListener('load', firstLoad)
+  citySearchBtn.addEventListener('click', getWeatherData)
+  citySearchTxt.addEventListener('keypress', (e)=> {
+    if(e.key == 'Enter') getWeatherData()
+  })
+  toggleDegreesBtn.addEventListener('click', toggleMetricSys)
+  forecastCards.forEach(card => card.addEventListener('click', toggleHourly))
+  closeHourlyData.addEventListener('click', closePanel)
+
+  function closePanel(){
+    hourlyContainer.classList.add('hidden')
+    currentCard.classList.remove('hidden')
+  }
+
+  function toggleHourly(e){
+    console.log(e.currentTarget)
+    //Hidding current card, show hourly data
+    currentCard.classList.add('hidden')
+    hourlyContainer.classList.remove('hidden')
+    hourlyContainer.scrollTop = 0
+
+    //Clicked the same day
+    if(hourlyContainer.firstChild.firstChild.textContent == e.currentTarget.firstChild.textContent)
+      return
+    let id = e.currentTarget.attributes[0].value
+    let hoursData = weatherData.forecast.forecastday[id].hour
+    hourlyContainer.attributes['card-id'].value = id
+    hourlyContainer.firstChild.firstChild.textContent = forecastCards[id].firstChild.textContent
+    console.log(id)
+    //Fill ul
+    let ul = hourlyContainer.children[1]
+    for(let i=0; i<24; i++){
+      //Hourly element Temp
+      ul.children[i].firstChild.firstChild.firstChild.children[0].textContent = 
+        isMetric ? hoursData[i].temp_c : hoursData[i].temp_f
+      //Hourly element Icon 
+      ul.children[i].firstChild.firstChild.lastChild.src = 
+        hoursData[i].condition.icon
+    }
+  }
+
+  async function firstLoad(){
+    weatherData = await (0,_apiFns_js__WEBPACK_IMPORTED_MODULE_0__.weatherFetch)('Cancun')
+
+    fillWeatherData()
+    //first hourly data - current day
+    let hoursData = weatherData.forecast.forecastday[0].hour
+    hourlyContainer.setAttribute('card-id', 0)
+    hourlyContainer.firstChild.firstChild.textContent = forecastCards[0].firstChild.textContent
+    //Fill ul
+    let ul = hourlyContainer.children[1]
+    for(let i=0; i<24; i++){
+      //Hourly element Temp
+      ul.children[i].firstChild.firstChild.firstChild.children[0].textContent = 
+        isMetric ? hoursData[i].temp_c : hoursData[i].temp_f
+      //Hourly element Icon 
+      ul.children[i].firstChild.firstChild.lastChild.src = 
+        hoursData[i].condition.icon
+    }
+  }
+  function toggleMetricSys(){
+    if(isMetric){
+      currentTemp.textContent = weatherData.current.temp_f
+      currentFeelsLike.textContent = weatherData.current.feelslike_f
+      currentWind.textContent = weatherData.current.wind_mph
+
+      for (let i=0; i<3; i++){
+        forecastCards[i].childNodes[2].children[0].textContent = 
+          weatherData.forecast.forecastday[i].day.mintemp_f
+        forecastCards[i].childNodes[2].children[1].textContent = 
+          weatherData.forecast.forecastday[i].day.maxtemp_f
+      }
+      //Toggle hourlyData
+      let id = hourlyContainer.attributes['card-id'].value
+      let ul = hourlyContainer.children[1]
+      let hoursData = weatherData.forecast.forecastday[id].hour
+      for(let i=0; i<24; i++){
+        ul.children[i].firstChild.firstChild.firstChild.children[0].textContent = 
+          hoursData[i].temp_f
+      }
+      isMetric = false
+    } else {
+      currentTemp.textContent = weatherData.current.temp_c
+      currentFeelsLike.textContent = weatherData.current.feelslike_c
+      currentWind.textContent = weatherData.current.wind_kph
+
+      for (let i=0; i<3; i++){
+        forecastCards[i].childNodes[2].children[0].textContent = 
+          weatherData.forecast.forecastday[i].day.mintemp_c
+        forecastCards[i].childNodes[2].children[1].textContent = 
+          weatherData.forecast.forecastday[i].day.maxtemp_c
+      }
+      //Toggle hourlyData
+      let id = hourlyContainer.attributes['card-id'].value
+      let ul = hourlyContainer.children[1]
+      let hoursData = weatherData.forecast.forecastday[id].hour
+      for(let i=0; i<24; i++){
+        ul.children[i].firstChild.firstChild.firstChild.children[0].textContent = 
+          hoursData[i].temp_c
+      }
+      isMetric = true 
+    }
+    systemDependantValues.forEach(ele => ele.classList.toggle('metric-system'))
+  }
+  async function getWeatherData(){
+    try{
+      console.log(weatherData)
+      let tempWeather = await (0,_apiFns_js__WEBPACK_IMPORTED_MODULE_0__.weatherFetch)(citySearchTxt.value)
+      //Caching data
+      if(tempWeather) weatherData = tempWeather
+      if(weatherData) fillWeatherData()
+      currentCard.classList.remove('hidden')
+      hourlyContainer.classList.add('hidden')
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  function fillWeatherData(){
     
     //MainCard
     currentCity.textContent = weatherData.location.name
     currentRegion.textContent = weatherData.location.region
     currentConditionIcon.src = weatherData.current.condition.icon
     currentCondition.textContent = weatherData.current.condition.text
-    currentTemp.textContent = weatherData.current.temp_c
+    currentDate.textContent = (0,_utils_js__WEBPACK_IMPORTED_MODULE_1__.getFormatedDate)(weatherData.location.localtime)
+    currentTemp.textContent = isMetric ? weatherData.current.temp_c : weatherData.current.temp_f
     //MiscCards
-    currentFeelsLike.textContent = weatherData.current.feelslike_c
-    currentWind.textContent = weatherData.current.wind_kph
+    currentFeelsLike.textContent = isMetric ? weatherData.current.feelslike_c : weatherData.current.feelslike_f
+    currentWind.textContent = isMetric ? weatherData.current.wind_kph : weatherData.current.wind_mph
     currentWindDir.textContent = weatherData.current.wind_dir
     currentHumidity.textContent = weatherData.current.humidity
     currentUv.textContent = weatherData.current.uv
 
-    const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    //Forecast
     for (let i=0; i<3; i++){
       forecastCards[i].childNodes[0].textContent = 
-        weekdays[new Date(weatherData.forecast.forecastday[i].date).getUTCDay()] 
+        (0,_utils_js__WEBPACK_IMPORTED_MODULE_1__.getDay)(weatherData.forecast.forecastday[i].date)
       forecastCards[i].childNodes[1].src = 
         weatherData.forecast.forecastday[i].day.condition.icon
-      forecastCards[i].childNodes[2].children[0].textContent = 
-        weatherData.forecast.forecastday[i].day.mintemp_c
-      forecastCards[i].childNodes[2].children[1].textContent = 
-        weatherData.forecast.forecastday[i].day.maxtemp_c
+      forecastCards[i].childNodes[2].children[0].textContent = isMetric 
+        ? weatherData.forecast.forecastday[i].day.mintemp_c
+        : weatherData.forecast.forecastday[i].day.mintemp_f
+      forecastCards[i].childNodes[2].children[1].textContent = isMetric
+        ? weatherData.forecast.forecastday[i].day.maxtemp_c
+        : weatherData.forecast.forecastday[i].day.maxtemp_f
     }
   }
 }
 
+
+
+
+
+/***/ }),
+
+/***/ "./src/utils.js":
+/*!**********************!*\
+  !*** ./src/utils.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getDay": () => (/* binding */ getDay),
+/* harmony export */   "getFormatedDate": () => (/* binding */ getFormatedDate)
+/* harmony export */ });
+const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+const months = ["January", "February", "March", "April", "May", "June",
+   "July", "August", "September", "October", "November", "December"]
+
+const getDay = (date) => weekdays[new Date(date).getUTCDay()]
+const getMonth = (date) => months[new Date(date).getUTCMonth()]
+
+const getFormatedDate = (date) => `${getDay(date)}, ${getMonth(date)} ${date.slice(8,10)}`
 
 
 
