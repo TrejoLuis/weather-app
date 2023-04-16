@@ -45,6 +45,9 @@ function listenersInit(){
   //LISTENERS
   window.addEventListener('load', firstLoad)
   citySearchBtn.addEventListener('click', getWeatherData)
+  citySearchTxt.addEventListener('keypress', (e)=> {
+    if(e.key == 'Enter') getWeatherData()
+  })
   toggleDegreesBtn.addEventListener('click', toggleMetricSys)
   forecastCards.forEach(card => card.addEventListener('click', toggleHourly))
   closeHourlyData.addEventListener('click', closePanel)
