@@ -26,7 +26,25 @@ header{
   justify-content: space-evenly;
   padding: 1rem;
   background-color: moccasin;
-
+  align-items: center;
+}
+.search-div{
+  position: relative;
+}
+.search-div>input{
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+}
+.search-div>button{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+button{
+  padding: 0.5rem;
+  border: none;
 }
 
 footer{

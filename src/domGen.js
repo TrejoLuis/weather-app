@@ -27,7 +27,7 @@ function header(){
   <div class="logo">LOGO</div>
   <div class="search-div">
     <input type="text" id="searchCity">
-    <button class="search-button">ICON</button>
+    <button class="search-button">Search</button>
   </div>
   <button id="toggleDegreeBtn">°C / °F</button>
   `
