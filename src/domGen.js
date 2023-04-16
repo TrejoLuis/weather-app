@@ -7,9 +7,18 @@ function init(){
   const content = document.createElement('div')
   content.id = 'content'
 
-  content.append(header(),main())
+  content.append(header(),main(),footer())
 
   document.body.appendChild(content)
+}
+
+function footer(){
+  const foot = document.createElement('footer')
+  const div = document.createElement('div')
+  div.textContent = '©2023 Luis Trejo'
+  foot.appendChild(div)
+
+  return foot
 }
 
 function header(){
