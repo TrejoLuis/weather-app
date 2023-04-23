@@ -2,6 +2,7 @@ import humidityIcon from './icons/humidity.png'
 import airIcon from './icons/air.png'
 import sunnyIcon from './icons/sunny.png'
 import thermoIcon from './icons/thermometer.png'
+import magnifierSvg from './icons/magnifier-left.svg'
 
 function init(){
   const content = document.createElement('div')
@@ -26,8 +27,10 @@ function header(){
   header.innerHTML = `
   <div class="logo">LOGO</div>
   <div class="search-div">
-    <input type="text" id="searchCity">
-    <button class="search-button">Search</button>
+    <input type="text" id="searchCity" placeholder="Search city...">
+    <button class="search-button">
+      <img src=${magnifierSvg}>
+    </button>
   </div>
   <button id="toggleDegreeBtn">°C / °F</button>
   `
