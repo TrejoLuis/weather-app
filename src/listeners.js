@@ -85,7 +85,11 @@ function listenersInit(){
   }
 
   async function firstLoad(){
-    weatherData = await weatherFetch('Cancun')
+    //Getting ip city
+    let ipCityReq = await fetch('https://ipapi.co/city')
+    let city = await ipCityReq.text()
+
+    weatherData = await weatherFetch(city)
 
     fillWeatherData()
     //first hourly data - current day
