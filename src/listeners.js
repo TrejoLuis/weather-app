@@ -38,6 +38,7 @@ function listenersInit(){
 
   let weatherData = null 
   let isMetric = true
+  let currentHour = null
 
   console.log(citySearchTxt)
   console.log(forecastCards)
@@ -65,8 +66,8 @@ function listenersInit(){
     hourlyContainer.scrollTop = 0
 
     //Clicked the same day
-    if(hourlyContainer.firstChild.firstChild.textContent == e.currentTarget.firstChild.textContent)
-      return
+    // if(hourlyContainer.firstChild.firstChild.textContent == e.currentTarget.firstChild.textContent)
+    //   return
     let id = e.currentTarget.attributes[0].value
     let hoursData = weatherData.forecast.forecastday[id].hour
     hourlyContainer.attributes['card-id'].value = id
@@ -81,6 +82,12 @@ function listenersInit(){
       //Hourly element Icon 
       ul.children[i].firstChild.firstChild.lastChild.src = 
         hoursData[i].condition.icon
+      //Add highlight class to current hour forecast
+      if(hourlyContainer.getAttribute('card-id') == 0 && 
+        currentHour == i){
+        ul.children[i].firstChild.classList.add('highlight-hour')
+      } else 
+        ul.children[i].firstChild.classList.remove('highlight-hour')
     }
   }
 
@@ -90,12 +97,14 @@ function listenersInit(){
     let city = await ipCityReq.text()
 
     weatherData = await weatherFetch(city)
-
+    console.log(weatherData)
     fillWeatherData()
     //first hourly data - current day
     let hoursData = weatherData.forecast.forecastday[0].hour
     hourlyContainer.setAttribute('card-id', 0)
     hourlyContainer.firstChild.firstChild.textContent = forecastCards[0].firstChild.textContent
+    //Caching current day and hour
+    currentHour = weatherData.current.last_updated.slice(-5,-3)
     //Fill ul
     let ul = hourlyContainer.children[1]
     for(let i=0; i<24; i++){

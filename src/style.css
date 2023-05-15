@@ -135,9 +135,13 @@ main{
 .hourly-container li{
   margin-bottom: 0.5rem;
 }
+
 .hourly-element{
   background-color: rgba(var(--dk-acc-clr), 0.8);
   padding: 0.5rem 1rem;
+}
+.highlight-hour{
+  background-color: rgba(var(--main-clr), 0.8);
 }
 .hourly-element>div{
   display: flex;
