@@ -137,11 +137,11 @@ main{
 }
 
 .hourly-element{
-  background-color: rgba(var(--dk-acc-clr), 0.8);
+  background-color: rgba(var(--lt-acc-clr), 0.6);
   padding: 0.5rem 1rem;
 }
 .highlight-hour{
-  background-color: rgba(var(--main-clr), 0.8);
+  background-color: rgba(var(--main-clr), 0.6);
 }
 .hourly-element>div{
   display: flex;
